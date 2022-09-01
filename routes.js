@@ -21,9 +21,8 @@ const requestHandler = (req, res) => {
       body.push(chunk);
     });
 
-    req.on("end", () => {
+    return req.on("end", () => {
       const parsedBody = Buffer.concat(body).toString();
-      console.log(parsedBody);
       const message = parsedBody.split("=")[1];
       fs.writeFile("message.txt", message, (err) => {
         res.statusCode = 302;
@@ -34,10 +33,13 @@ const requestHandler = (req, res) => {
   }
 
   res.setHeader("Content-Type", "text/html");
+  res.write("<html>");
   res.write("<head><title>Hi</title><head>");
   res.write("<body><h1>Hello</h1></body>");
   res.write("</html>");
   res.end();
 };
 
+//pode ser un obxecto con varias funcions e logo de importar accedese co modulo.key
+//pode resumirse a exports solo
 module.exports = requestHandler;
