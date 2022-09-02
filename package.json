@@ -1,0 +1,24 @@
+{
+  "name": "node-basics",
+  "version": "1.0.0",
+  "description": "repaso node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diego-rg/node-repaso.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diego-rg/node-repaso/issues"
+  },
+  "homepage": "https://github.com/diego-rg/node-repaso#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
