@@ -6,13 +6,13 @@ const router = express.Router();
 //ao poñer ao final "/" e no usar next non se executara o seguinte middle
 router.get("/add-product", (req, res, next) => {
   res.send(
-    '<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Send</button></form>'
+    '<form action="/admin/add-product" method="POST"><input type="text" name="title"><button type="submit">Send</button></form>'
   );
 });
 
 //post get limita a use para so peticions get/post
 //o body da peticion ou payload debe parsearse a json (neste caso con libreria)
-router.post("/product", (req, res, next) => {
+router.post("/add-product", (req, res, next) => {
   console.log(req.body);
   res.redirect("/");
 });

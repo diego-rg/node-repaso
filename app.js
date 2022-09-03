@@ -11,7 +11,12 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //Uso das rutas de router en vez de app.
-app.use(adminRoutes);
+//"/admin" filtra so as q comecen por eso
+app.use("/admin", adminRoutes);
 app.use(shopRoutes);
+
+app.use((req, res, next) => {
+  res.status(404).send("<h1>Página no encontrada</h1>");
+});
 
 app.listen(3000);
