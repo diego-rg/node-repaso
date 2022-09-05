@@ -10,7 +10,7 @@ const products = [];
 // "/" recolleria todos os path que comezan por /. Por eso hai q usar antes os outros NOTA: solo con use, get e post usan a ruta exacta polo que da igual
 //ao poñer ao final "/" e no usar next non se executara o seguinte middle
 router.get("/add-product", (req, res, next) => {
-  res.sendFile(path.join(main, "..", "views", "add-product.html"));
+  res.render("add-product");
 });
 
 //post get limita a use para so peticions get/post
