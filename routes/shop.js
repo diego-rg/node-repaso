@@ -10,8 +10,8 @@ const router = express.Router();
 //express xa se encarga dos headers, anqu se pod configurar
 //__dirname reprsenta o path actual deste archivo, polo que hai q ir atras
 router.get("/", (req, res, next) => {
-  console.log(adminData.products);
-  res.sendFile(path.join(main, "..", "views", "shop.html"));
+  const products = adminData.products;
+  res.render("shop", { prods: products });
 });
 
 module.exports = router;

@@ -7,6 +7,9 @@ const main = require("require-main-filename")();
 //next permite á request continuar ao seguite middle (se non se usa debe acabar con unha response)
 const app = express();
 
+app.set("view engine", "pug");
+app.set("views", "views");
+
 const adminData = require("./routes/admin.js");
 const shopRoutes = require("./routes/shop.js");
 
