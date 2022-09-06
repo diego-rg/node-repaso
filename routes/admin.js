@@ -1,24 +1,13 @@
 const express = require("express");
-const path = require("path");
 
-const main = require("require-main-filename")();
+const productsController = require("../controllers/products.js");
 
 const router = express.Router();
 
-const products = [];
+// /admin/add-product GET
+router.get("/add-product", productsController.getAddProducts);
 
-// "/" recolleria todos os path que comezan por /. Por eso hai q usar antes os outros NOTA: solo con use, get e post usan a ruta exacta polo que da igual
-//ao poñer ao final "/" e no usar next non se executara o seguinte middle
-router.get("/add-product", (req, res, next) => {
-  res.render("add-product");
-});
+// /admin/add-product POST
+router.post("/add-product", productsController.postAddProduct);
 
-//post get limita a use para so peticions get/post
-//o body da peticion ou payload debe parsearse a json (neste caso con libreria)
-router.post("/add-product", (req, res, next) => {
-  products.push({ title: req.body.title });
-  res.redirect("/");
-});
-
-exports.routes = router;
-exports.products = products;
+module.exports = router;
