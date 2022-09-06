@@ -11,6 +11,8 @@ app.set("views", "views");
 const adminRoutes = require("./routes/admin.js");
 const shopRoutes = require("./routes/shop.js");
 
+const errorControllers = require("./controllers/errors.js");
+
 //crea un middleware para convertir o body da fiorm da request a json
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -20,8 +22,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
-app.use((req, res, next) => {
-  res.status(404).render("404");
-});
+app.use(errorControllers.getErrorPage);
 
 app.listen(3000);
